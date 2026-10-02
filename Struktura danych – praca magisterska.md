@@ -383,7 +383,8 @@ Klasyczny kompromis między wielkością próby a jej jednorodnością. Model wy
 - Dłuższy okres → więcej zdarzeń (więcej faz badań, więcej kamieni milowych), ale ryzyko, że starsze dane nie są porównywalne ze świeższymi — zmieniało się otoczenie regulacyjne FDA/EMA, praktyki komunikacji prasowej spółek, a nawet ogólny sentyment rynkowy wobec biotechu w różnych cyklach
 - Krótszy okres → dane bardziej aktualne i spójne, ale ryzyko zbyt małej próby do treningu/walidacji modelu
 
-**Sedno decyzji:** czy priorytetem jest czystość sygnału (wąska, jednorodna próba) czy moc statystyczna (szeroka próba, kosztem heterogeniczności). Bezpośrednio wpływa to na to, jak bardzo wyniki pracy będą uogólnialne, i determinuje ostateczną liczebność datasetu. Rekomendacja: ustalić z promotorem, analogicznie do pytania o typ modelu (P(faza) osobno vs. end-to-end).
+**Sedno decyzji:** czy priorytetem jest czystość sygnału (wąska, jednorodna próba) czy moc statystyczna (szeroka próba, kosztem heterogeniczności). Bezpośrednio wpływa to na to, jak bardzo wyniki pracy będą uogólnialne, i determinuje ostateczną liczebność datasetu.
+** Do ustalenia z promotorem. **
 
 #### Rozwiązanie: architektura modelu — etap 1 dwuetapowy (P(sukces) osobno od wyceny)
 
