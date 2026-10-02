@@ -483,6 +483,7 @@ Przy okazji pilotażu (moduł SPRAWOZDANIE\_FINANSOWE) padły dwa pytania archit
 **1. Sprawozdania finansowe jako panel czasowy, nie snapshot.** Model nie dostaje jednego zdjęcia bilansu, tylko historię kolejnych kwartałów (relacja SPOLKA 1—N SPRAWOZDANIE\_FINANSOWE ze schematu). Obowiązuje zasada *point-in-time*: przy predykcji P(sukces)/reakcji ceny w momencie T model może widzieć wyłącznie sprawozdania opublikowane przed T. To bezpośrednie doprecyzowanie wcześniejszej uwagi krytycznej o ryzyku data leakage — leakage może wystąpić nie tylko przez dane kliniczne, ale też przez sprawozdania finansowe użyte z przyszłości względem punktu predykcji.
 
 **2. Tekst opisowy w sprawozdaniach (noty, uzasadnienia zarządu, MD&A) nie wchodzi do rdzenia modelu.** Sprawozdania zawierają sporo tekstu (np. nota o zmianie wyceny contingent consideration). Decyzja: nie budujemy dla niego osobnego kanału NLP/embeddingów — ryzyko przeuczenia przy małej próbie badań klinicznych jest zbyt wysokie względem korzyści, a dodatkowo rozmyłoby to już podjętą decyzję o etapowym module newsowo-sentymentowym. Jeśli tekst ze sprawozdań ma być w ogóle wykorzystany, trafia do tego samego modułu ZDARZENIE\_NEWSOWE (komunikat o wynikach kwartalnych jako zdarzenie newsowe), a nie jako osobna ścieżka przetwarzania. Dopuszczalne minimum: proste, interpretowalne flagi (np. wzmianka o "going concern", zmiana prognozy w górę/dół), nie pełne embeddingi tekstu.
+**Do ustalenia**
 
 #### Rozwiązanie: dodanie szóstej ścieżki architektury — literatura naukowa (PUBLIKACJA\_NAUKOWA)
 
