@@ -49,7 +49,7 @@ AACT jest relacyjną bazą agregującą ClinicalTrials.gov (51 tabel, aktualizac
 
 ## Problem punktu w czasie i zmienna celu
 
-Model musi widzieć dane wyłącznie z momentu, w którym predykcja miałaby realną wartość — nie z finalnego rekordu badania, bo to prowadzi do data leakage (model "widzi przyszłość"). Wymaga to cyklicznych snapshotów bazy AACT/CTIS albo filtrowania pól po dacie ich powstania względem `primary_completion_date`.
+Model musi widzieć dane wyłącznie z momentu, w którym predykcja miałaby realną wartość — nie z finalnego rekordu badania, bo to prowadzi do data leakage. Wymaga to cyklicznych snapshotów bazy AACT/CTIS albo filtrowania pól po dacie ich powstania względem `primary_completion_date`.
 
 Zmienna celu (przejście do kolejnej fazy vs. terminacja) opiera się częściowo na polu `why_stopped`, które w AACT jest wolnym tekstem — wymaga klasyfikacji (reguły słownikowe lub NLP) do postaci binarnej etykiety sukces/porażka.
 
@@ -65,7 +65,7 @@ Moduł giełdowy dzieli się na trzy warstwy o różnym przeznaczeniu.
 
 Statystyczną podstawą backtestu — i samej definicji zmiennej celu w module dokumentacji badania — powinna być analiza czasu trwania (survival analysis), a nie tylko prosta klasyfikacja binarna sukces/porażka:
 
-- Zmienna celu jako czas do zdarzenia (time-to-event) — czas od rozpoczęcia fazy do jej zakończenia sukcesem, terminacją, lub trwania nadal
+- Zmienna celu jako czas do zdarzenia — czas od rozpoczęcia fazy do jej zakończenia sukcesem, terminacją, lub trwania nadal
 - Cenzurowanie prawostronne — badania wciąż aktywne w momencie odcięcia danych są cenzurowane, a nie usuwane czy liczone jako porażka
 - Konkurujące ryzyka (competing risks) — przejście do kolejnej fazy, terminacja i "nadal trwa" to trzy wzajemnie wykluczające się zdarzenia, co wymaga modelu subdystrybucji (Fine-Gray) zamiast standardowego estymatora Kaplana-Meiera
 - Model Coxa proporcjonalnych hazardów pozwala włączyć zmienne z pozostałych modułów (finansowe, giełdowe, cechy badania) jako kowarianty, w tym zmienne zmieniające się w czasie
@@ -84,7 +84,7 @@ Rozszerzenie modułu wiadomości i sentymentu o dane dotyczące zakupu/sprzedaż
 | Quiver Quantitative (congresstrading) | Zagregowane, Senat + Izba Reprezentantów | Darmowy podgląd, płatne API przy większej skali |
 | InsiderFinance, Capitol Trades, Unusual Whales | Komercyjne dashboardy | Przydatne do weryfikacji wizualnej, brak udokumentowanej metodologii — mniej odpowiednie jako źródło naukowe |
 
-Hipoteza badawcza: członkowie komisji nadzorujących FDA/ochronę zdrowia (np. Senate HELP Committee, House Energy and Commerce) mogą mieć dostęp do informacji o przebiegu procesu regulacyjnego wcześniej niż rynek — ich transakcje mogą więc pełnić rolę sygnału wyprzedzającego (leading indicator).
+Hipoteza badawcza: członkowie komisji nadzorujących FDA/ochronę zdrowia (np. Senate HELP Committee, House Energy and Commerce) mogą mieć dostęp do informacji o przebiegu procesu regulacyjnego wcześniej niż rynek — ich transakcje mogą więc pełnić rolę sygnału wyprzedzającego.
 
 Proponowane cechy:
 
