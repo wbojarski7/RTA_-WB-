@@ -300,9 +300,8 @@ Dodatkowo: błąd ceny sugerowanej przez model względem ceny rzeczywistej, np. 
 ### Zastrzeżenia metodologiczne
 
 1. **Dostępność pożyczki akcji (hard-to-borrow)** — małe spółki biotechowe często mają ograniczony free float, co oznacza wysoki koszt lub brak możliwości zajęcia krótkiej pozycji w praktyce; backtest bezfrykcyjny byłby nierealistyczny.
-2. **Wstrzymania obrotu (trading halts)** — handel bywa zawieszany tuż przed/po ogłoszeniu kluczowych wyników, więc nie da się wejść/wyjść z pozycji dokładnie w momencie ogłoszenia — trzeba założyć realistyczne wykonanie (np. na otwarciu kolejnej sesji).
+2. **Wstrzymania obrotu** — handel bywa zawieszany tuż przed/po ogłoszeniu kluczowych wyników, więc nie da się wejść/wyjść z pozycji dokładnie w momencie ogłoszenia — trzeba założyć realistyczne wykonanie (np. na otwarciu kolejnej sesji).
 3. **Nieograniczone ryzyko strat przy shorcie** — sukces badania wbrew predykcji może oznaczać wielokrotny wzrost kursu — wymaga to jawnego omawiania zarządzania ryzykiem (position sizing, ewentualny stop-loss).
-4. **To pozostaje backtest akademicki, nie rekomendacja inwestycyjna** — warto to jasno zaznaczyć w pracy.
 
 ## Otwarte pytania do promotora
 
@@ -312,7 +311,7 @@ Dodatkowo: błąd ceny sugerowanej przez model względem ceny rzeczywistej, np. 
 
 #### Rozwiązanie: dopasowanie sponsor → spółka przez LEI / SEC EDGAR
 
-KRS obejmuje wyłącznie polskie spółki, a próba badawcza to w większości spółki notowane w USA i Europie Zachodniej — potrzebny jest więc międzynarodowy odpowiednik tej samej idei.
+Próba badawcza to w większości spółki notowane w USA i Europie Zachodniej.
 
 | Krok | Źródło | Co daje |
 | --- | --- | --- |
